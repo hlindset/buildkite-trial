@@ -1,0 +1,6 @@
+services:
+  sbt-service:
+    build: ./build/docker/sbt-service/
+    volumes:
+      - .:/app
+    working_dir: /app
