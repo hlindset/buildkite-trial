@@ -1,3 +1,4 @@
+version: '2'
 services:
   sbt-service:
     build: ./build/docker/sbt-service/
