@@ -1,7 +1,7 @@
 steps:
   - name: "docker image stage"
     label: ":construction_worker:"
-    command: "sbt docker:stage"
+    command: "cd app; sbt docker:stage"
     plugins:
       docker-compose#v2.1.0:
         run: sbt-service
