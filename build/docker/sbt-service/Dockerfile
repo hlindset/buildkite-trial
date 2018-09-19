@@ -4,7 +4,7 @@ ENV SBT_VERSION 1.1.4
 ENV SBT_HOME /usr/local/sbt
 ENV PATH ${PATH}:${SBT_HOME}/bin
 
-apk add --no-cache --virtual=build-dependencies curl && \
+RUN apk add --no-cache --virtual=build-dependencies curl && \
     curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz" | gunzip | tar -x -C /usr/local && \
     ln -s /usr/local/sbt/bin/sbt /usr/local/bin/sbt && \
     chmod 0755 /usr/local/bin/sbt && \
