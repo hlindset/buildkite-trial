@@ -13,13 +13,13 @@ steps:
         run: sbt-service
   - name: "cat build.sbt"
     label: ":construction_worker:"
-    command: "cat build.sbt"
+    command: "cat ./build.sbt"
     plugins:
       docker-compose#v2.1.0:
         run: sbt-service
   - name: "cat project/build.properties"
     label: ":construction_worker:"
-    command: "cat project/build.properties"
+    command: "cat ./project/build.properties"
     plugins:
       docker-compose#v2.1.0:
         run: sbt-service

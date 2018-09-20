@@ -2,6 +2,12 @@ version: '2'
 services:
   sbt-service:
     build: ./build/docker/sbt-service/
+    working_dir: /buildkite-trial
     volumes:
-      - .:/app
-    working_dir: /app
+      - .:/buildkite-trial
+      - /usr/bin/buildkite-agent:/usr/bin/buildkite-agent
+    environment:
+      - BUILDKITE_AGENT_ACCESS_TOKEN
+      - BUILDKITE_JOB_ID
+      - BUILDKITE_BUILD_ID
+      - BUILDKITE_BUILD_NUMBER
