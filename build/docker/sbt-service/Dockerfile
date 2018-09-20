@@ -11,6 +11,8 @@ RUN apk add --no-cache --virtual=build-dependencies curl tar && \
     ln -s /usr/local/sbt/bin/sbt /usr/local/bin/sbt && \
     chmod 0755 /usr/local/bin/sbt && \
     apk del build-dependencies
+
+# preinstall sbt
 RUN mkdir -p /tmp/sbt-preload && \
     cd /tmp/sbt-preload && \
     touch build.sbt && \
