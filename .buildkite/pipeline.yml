@@ -1,6 +1,6 @@
 steps:
   - label: ":man-facepalming:"
-    command: "find /"
+    command: "find /app"
     plugins:
       docker-compose#v2.5.1:
         run: sbt-service
