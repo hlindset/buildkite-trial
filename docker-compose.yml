@@ -2,11 +2,4 @@ version: "3"
 services:
   sbt-service:
     build: .
-    working_dir: /app
-    volumes:
-      # application source
-      - .:/app
-      # build cache
-      - $HOME/.ivy2:/root/.ivy2
-      - $HOME/.sbt:/root/.sbt
-      - $HOME/.m2:/root/.m2
+    working_dir: ${BUILDKITE_BUILD_CHECKOUT_PATH}
