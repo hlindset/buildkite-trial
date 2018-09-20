@@ -20,4 +20,4 @@ RUN mkdir -p /tmp/sbt-preload && \
     echo "sbt.version=$SBT_VERSION" > project/build.properties && \
     sbt exit
 
-WORKDIR /buildkite-trial
+WORKDIR /app
