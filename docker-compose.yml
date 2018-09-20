@@ -1,11 +1,11 @@
 version: "3"
 services:
   sbt-service:
-    build: ../build/docker/sbt-service/
+    build: ./build/docker/sbt-service/
     working_dir: /app
     volumes:
       # application source
-      - ..:/app
+      - .:/app
       # build cache
       - $HOME/.ivy2:/root/.ivy2
       - $HOME/.sbt:/root/.sbt
