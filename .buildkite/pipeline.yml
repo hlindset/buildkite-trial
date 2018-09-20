@@ -1,4 +1,16 @@
 steps:
+  - name: "echo build.sbt"
+    label: ":construction_worker:"
+    command: "echo build.sbt"
+    plugins:
+      docker-compose#v2.1.0:
+        run: sbt-service
+  - name: "echo project/build.properties"
+    label: ":construction_worker:"
+    command: "echo project/build.properties"
+    plugins:
+      docker-compose#v2.1.0:
+        run: sbt-service
   - name: "docker image stage"
     label: ":construction_worker:"
     command: "sbt docker:publishLocal"
