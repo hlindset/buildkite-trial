@@ -1,10 +1,5 @@
 steps:
-  - label: ":man-facepalming:"
-    command: "find /app"
-    plugins:
-      docker-compose#v2.5.1:
-        run: sbt-service
-  - label: ":sbt:"
+  - label: ":sbt: docker:stage"
     command: "sbt docker:stage"
     plugins:
       docker-compose#v2.5.1:
