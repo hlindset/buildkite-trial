@@ -1,6 +1,24 @@
 steps:
-  - label: ":sbt: docker:stage"
-    command: "sbt docker:stage"
+  - label: ":sbt: :docker: (stage)"
+    name: docker-stage
+    command:
+      - "sbt docker:stage"
+    artifact_paths:
+      - "target/docker/**/*"
     plugins:
       docker-compose#v2.5.1:
         run: sbt-service
+
+  - wait
+
+  - label: ":docker: (build)"
+    name: docker-build
+    command:
+      # download artifact created by the `docker-stage` step
+      - "buildkite-agent artifact download target/docker/ . --step docker-stage"
+    plugins:
+      # docker-login#v2.0.1:
+      #   username: hlindset
+      #   password-env: DOCKER_LOGIN_PASSWORD
+      docker-compose#v2.5.1:
+        build: app

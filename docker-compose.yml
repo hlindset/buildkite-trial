@@ -1,5 +1,6 @@
 version: "3"
 services:
+  # for building the app
   sbt-service:
     build: ./build/docker/sbt-service/
     working_dir: /app
@@ -10,3 +11,8 @@ services:
       - $HOME/.ivy2:/root/.ivy2
       - $HOME/.sbt:/root/.sbt
       - $HOME/.m2:/root/.m2
+
+  # app docker image
+  app:
+    build: ./target/docker/
+    working_dir: /app
