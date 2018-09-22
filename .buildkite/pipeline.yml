@@ -16,4 +16,4 @@ steps:
       - "buildkite-agent artifact download target/docker/* ."
       # build docker image
       - "export BUILDKITE_SHORT_COMMIT=$(git rev-parse --short $BUILDKITE_COMMIT)"
-      - "docker build -t buildkite-trial:${BUILDKITE_BRANCH}.${BUILDKITE_SHORT_COMMIT}"
+      - "docker build -t buildkite-trial:${BUILDKITE_BRANCH}.${BUILDKITE_SHORT_COMMIT} target/docker/stage/"
