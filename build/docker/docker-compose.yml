@@ -6,7 +6,7 @@ services:
     working_dir: /app
     volumes:
       # application source
-      - .:/app
+      - ../../:/app
       # build cache
       - $HOME/.ivy2:/root/.ivy2
       - $HOME/.sbt:/root/.sbt
