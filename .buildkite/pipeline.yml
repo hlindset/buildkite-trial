@@ -14,9 +14,6 @@ steps:
     command:
       # download artifact created by the `docker-stage` step
       - "buildkite-agent artifact download target/docker/ ."
-    plugins:
-      # docker-login#v2.0.1:
-      #   username: hlindset
-      #   password-env: DOCKER_LOGIN_PASSWORD
-      docker-compose#v2.5.1:
-        build: app
+      # build docker image
+      - "export BUILDKITE_SHORT_COMMIT=$(git rev-parse --short $BUILDKITE_COMMIT)"
+      - "docker build -t buildkite-trial:${BUILDKITE_BRANCH}.${BUILDKITE_SHORT_COMMIT}"
