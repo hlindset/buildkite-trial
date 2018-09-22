@@ -1,4 +1,7 @@
 steps:
+  - label: "printenv"
+    command: "printenv"
+
   - label: ":sbt: :docker: stage"
     command: "sbt docker:stage"
     artifact_paths:
