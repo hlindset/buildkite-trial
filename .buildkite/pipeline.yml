@@ -1,8 +1,6 @@
 steps:
   - label: ":sbt: :docker: (stage)"
-    name: docker-stage
-    command:
-      - "sbt docker:stage"
+    command: "sbt docker:stage"
     artifact_paths:
       - "target/docker/**/*"
     plugins:
@@ -12,10 +10,9 @@ steps:
   - wait
 
   - label: ":docker: (build)"
-    name: docker-build
     command:
       # download artifact created by the `docker-stage` step
-      - "buildkite-agent artifact download target/docker/ . --step docker-stage"
+      - "buildkite-agent artifact download target/docker/ ."
     plugins:
       # docker-login#v2.0.1:
       #   username: hlindset
