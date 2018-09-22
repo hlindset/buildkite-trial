@@ -1,8 +1,8 @@
 steps:
   - label: ":sbt: :docker: (stage)"
     command: "sbt docker:stage"
-    artifact_paths:
-      - "target/docker/**/*"
+    # artifact_paths:
+    #   - "target/docker/**/*"
     plugins:
       docker-compose#v2.5.1:
         run: sbt-service
